@@ -1,0 +1,26 @@
+A number of ropes are given with length L1,L2,L3, ... , LN.
+Cost of tying two ropes is the sum of their lenghts.
+At a time only two ropes can be tied together.
+Find the most cost effective solution.
+
+eg:
+L1=1
+L2=2
+L3=3
+
+
+1+2=3       3
+3+3=6       6
+Total =     9
+
+1+3=4       4
+4+2=5       9
+Total =     13
+
+2+3=5       5
+1+5=6       6
+
+Total =     11
+
+Hence the solution is 1,2,3
+
