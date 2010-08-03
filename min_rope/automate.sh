@@ -11,3 +11,4 @@ do
     input="$input$i\n"
 done
 echo -ne $input|./min_rope
+
