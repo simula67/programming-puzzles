@@ -1,0 +1,36 @@
+Design
+
+There is an important assumption in the design : Maximum wordlength is 2048 characters.
+This is configurable using the MAXWORDSIZE macro. Unless you are analysing some chemical or scientific document, this will suffice.
+Other important assumptions are that anything other than that of an alphabet is taken as a seperator for words, only English words are used for analysis etc..
+Also it must be possible to create a temporary filename named "mytmp" in the working directory.
+
+
+In the first phase the program reads the source file and puts all the words into the temporary file seperated by a newline.
+In the next step, first it skips the first (PRINTSTART - 1) trigrams (arbitratry start point). Skippin past N trigrams is same as skipping past N words and then starting to form and print trigrams from N + 1 th word.
+Now it forms trigrams from PRINTSTART words and continues for 67 iterations (which gives us a 201 word short story).
+When a new word is read from the file, old trigram is shifted one to the left (discarding the left most word) and new one is inserted at third position.
+
+With little configuration or modification it can be tuned to almost all scenerios of use. Little memory allocation is done dynamically.
+
+
+Dependencies to be installed
+
+The program was tested on Debian "Wheezy" box running Linux 2.6.32-5-amd64.
+GCC version was 4.5.3.
+I have used standard C libraries and a linux system call, so Linux (or any other Unix) is a must.
+You may also need make if you want to use the Makefile [ totally unecessary ].
+
+
+Usage:
+
+./words <input file>
+
+Here I have used "Pride and Prejudice" from Project Guttenberg.
+./words pride.txt > output
+
+
+Output file "output" will contain the result.
+Errors will be printed on standard error.
+If errors exist the output file may not be correct.
+

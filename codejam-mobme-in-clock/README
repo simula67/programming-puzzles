@@ -1,0 +1,80 @@
+Design
+
+At first the program checks whether a command line argument has been passed.
+If yes, it tries to fill in the "temp_hours", "temp_minutes" and "am" from the string passed in the command line.
+Other wise it fills it in by requesting the current time from the system.
+
+"minutes" is filled by approximating temp_minutes to nearest 5th slot.
+For example,
+18 => 20
+17 => 15
+15 => 15
+etc
+"hours" is approximated by checking the minutes,
+
+If minutes is more than 30, hours is temp_hours + 1 (so as to say "quarter to two" etc).
+Otherwise it is same as temp_hours.
+
+We also have a qualifier for approximation for fuzzy time.
+
+Almost is given when the following time is almost there. That includes all kinds of approximation.
+As human beings we always say 'almost' to  quantify the entire quantity following it.
+Example,
+"Almost" ("quarter to two")      [ 2:47, 2:43 etc ] 
+"Almost" ("qarter past two").
+etc
+
+"About" is given to quantify if time just past a slot
+"About qaurter past two" [ 2:17, 2:18 etc]
+
+For other cases "Around" is used except when the time is exactly in a given slot, at which point it just says "exactly".
+"Exactly quarter past two"
+"Around quarter past two".
+
+Now hours and minutes are printed using a print_minutes and print_hours function which is self-explanatory.
+
+Can do a lost more error checking.
+
+
+
+
+
+
+
+
+
+
+
+
+
+Dependencies
+
+The program was tested on Debian "Wheezy" box running Linux 2.6.32-5-amd64.
+GCC version was 4.5.3.
+I have used standard C libraries and linux system calls, so Linux (or any other Unix) is a must.
+You may also need make if you want to use the Makefile [ totally unecessary ].
+To build just run make.
+
+
+
+
+
+
+
+
+
+
+
+
+Usage:
+./clock [<input time>]
+Examples :
+./clock 2:43pm
+
+OR
+
+./clock
+
+
+
+
